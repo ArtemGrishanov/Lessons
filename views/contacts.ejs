@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <% include partials/head_common %>
+</head>
+
+<body>
+<div class="main">
+    <% include partials/header %>
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <article class="span12">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a> <span class="divider">/</span></li>
+                        <li><a href="#">Library</a> <span class="divider">/</span></li>
+                        <li class="active">Data</li>
+                    </ul>
+                </article>
+                <article class="span12">
+                    <figure class="map">
+                        <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+                    </figure>
+
+                </article>
+                <article class="span4">
+                    <h2>Address</h2>
+                    <address class="adress-1">
+                        <strong>Address 1 </strong>
+                        <strong class="title1">8901 Marmora Road,<br>
+                            Glasgow, D04 89GR. </strong>
+                        <em><span>Freephone:</span> +1 800 559 6580</em>
+                        <em><span>Telephone:  </span> +1 959 603 6035</em>
+                        <em><span>FAX:  </span> +1 504 889 9898</em>
+                        E-mail:<a href="#"> mail@demolink.org</a>
+                    </address>
+                    <address class="adress-1">
+                        <strong>Address 2 </strong>
+                        <strong class="title1">9863 - 9867 Mill Road,<br>
+                            Cambridge, MG09 99HT.</strong>
+                        <em><span>Freephone:</span> +1 800 559 6580</em>
+                        <em><span>Telephone:  </span> +1 959 603 6035</em>
+                        <em><span>FAX:  </span> +1 504 889 9898</em>
+                        E-mail:<a href="#"> mail@demolink.org</a>
+                    </address>
+                </article>
+                <article class="span8">
+                    <h2>Contact form</h2>
+
+                    <form id="contact-form">
+                        <div class="success" style="display: none;"> Contact form submitted! <strong>We will be in touch
+                            soon.</strong></div>
+                        <fieldset>
+                            <div>
+                                <div class="form-div-1">
+                                    <label class="name">
+                                        <input type="text" value="Name:">
+                                        <br>
+                                        <span class="error" style="display: none;">*This is not a valid name.</span>
+                                        <span class="empty" style="display: none;">*This field is required.</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-div-2">
+                                    <label class="email">
+                                        <input type="email" value="Email:">
+                                        <br>
+                                        <span class="error"
+                                              style="display: none;">*This is not a valid email address.</span> <span
+                                            class="empty" style="display: none;">*This field is required.</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-div-3">
+                                    <label class="phone">
+                                        <input type="tel" value="Phone:">
+                                        <br>
+                                        <span class="error"
+                                              style="display: none;">*This is not a valid phone number.</span> <span
+                                            class="empty" style="display: none;">*This field is required.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="message">
+                                    <textarea>Message:</textarea>
+                                    <br>
+                                    <span class="error" style="display: none;">*The message is too short.</span> <span
+                                        class="empty" style="display: none;">*This field is required.</span>
+                                </label>
+                            </div>
+
+                            <div class="buttons-wrapper"><a data-type="submit" class="btn btn-1"><span></span>Send
+                                Message</a></div>
+                        </fieldset>
+                    </form>
+
+                </article>
+
+            </div>
+        </div>
+    </div>
+    <div class="div-footer"></div>
+    <% include partials/footer %>
+</div>
+
+<!--<script type="text/javascript" src="js/templ/bootstrap.js"></script>-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/lib/underscore.js" type="text/javascript"></script>
+    <script src="js/lib/jquery-2.1.1.js"></script>
+    <script src="js/lib/backbone.js" type="text/javascript"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- Lesson view -->
+    <script type="text/template" id="id-lesson_view">
+        <div>Урок номер 1</div>
+        <div class="st-study_content">
+            <div id="id-video_container"></div>
+            <div id="id-html_container"></div>
+        </div>
+        <div id="id-task">
+            <div id="id-editor_cnt">
+
+            </div>
+            <span id="id-submit_answer" class="st-btn">Ответить</span>
+            <span id="id-correct_answer" class="st-correct_cnt">Верно</span>
+            <span id="id-false_answer" class="st-failed_cnt">Не верно</span>
+
+        </div>
+        <div id="id-answer" class="st-btn">
+            Ответы
+        </div>
+        <span id="id-next_slide" class="st-btn">
+            Дальше
+        </span>
+        <span id="id-repeat">
+            Заново
+        </span>
+    </script>
+
+    <!-- Slide view -->
+    <script type="text/template" id="id-slide_view">
+
+    </script>
+
+    <!-- Html editor template -->
+    <script type="text/template" id="id-html_editor_view">
+        <div>
+            <p>Редактор HTML</p>
+            <textarea id="id-editor">
+
+            </textarea>
+        </div>
+    </script>
+
+    <!-- Answer radio template -->
+    <script type="text/template" id="id-radio_answer_view">
+        <form>
+            <input type="radio" name="sex" value="male">Male<br>
+            <input type="radio" name="sex" value="female">Female
+        </form>
+    </script>
+
+</head>
+<body>
+    <div id="id-content_cnt" class=""></div>
+    <div id="id-lesson_cnt" class=""></div>
+
+    <script src="js/app.js"></script>
+    <script src="js/model/user.js" type="text/javascript"></script>
+    <script src="js/views/lesson/lesson.js" type="text/javascript"></script>
+    <script src="js/config.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            app.start();
+        });
+    </script>
+</body>
+</html>
