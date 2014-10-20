@@ -1,78 +1,158 @@
-/* latin-ext */
-@font-face {
-    font-family: 'Italianno';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Italianno'), local('Italianno-Regular'), url(http://fonts.gstatic.com/s/italianno/v6/r8-H81S5And8WyrrbOrbE4X0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+html,
+body,
+.main {
+    height: 100%;
 }
-/* latin */
-@font-face {
-    font-family: 'Italianno';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Italianno'), local('Italianno-Regular'), url(http://fonts.gstatic.com/s/italianno/v6/RzzA8gdr3WCK_nxdg53KGoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+body {
+    background: #ffffff;
 }
-
-/* latin */
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYAsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+body .main {
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    position: relative;
 }
-
-/* latin */
-@font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 100;
-    src: local('Raleway Thin'), local('Raleway-Thin'), url(http://fonts.gstatic.com/s/raleway/v9/RJMlAoFXXQEzZoMSUteGWIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+p {
+    margin-bottom: 24px;
 }
-/* latin */
-@font-face {
-    font-family: 'Raleway';
-    font-style: normal;
+/* headings, text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
     font-weight: 200;
-    src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(http://fonts.gstatic.com/s/raleway/v9/8KhZd3VQBtXTAznvKjw-kwsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    font-family: 'Helvetica', sans-serif;
 }
-/* latin */
-@font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Raleway'), url(http://fonts.gstatic.com/s/raleway/v9/QAUlVt1jXOgQavlW5wEfxVKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+a[href^="tel:"] {
+    color: inherit;
+    text-decoration: none;
 }
-
-
+a:hover {
+    text-decoration: none;
+}
+a {
+    outline: none;
+}
+h2 {
+    position: relative;
+    display: block;
+    color: #182025;
+    font-size: 28px;
+    line-height: 1em;
+}
+.h2indent {
+    margin: 72px 0 23px 0;
+}
+.h2indent-1 {
+    margin: 40px 0 27px 0;
+}
+h3 {
+    position: relative;
+    display: block;
+    color: #182025;
+    font-size: 24px;
+    line-height: 21px;
+}
+#content ul {
+    list-style: none;
+}
 
 .st-study_content {
     width: 774px;
     height: 336px;
     border-width: 1;
     border-style: solid;
-}
+    }
 
 .st-correct_cnt {
     color: #00ff00;
-}
+    }
 
 .st-failed_cnt {
     color: #ff1100;
-}
+    }
 
 .st-btn {
-    cursor: pointer;
-}
+    font-size:16px;
+    font-family:Arial;
+    font-weight:normal;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    border:1px solid #eda933;
+    padding:9px 23px;
+    text-decoration:none;
+    background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+    background:-ms-linear-gradient( top, #f6b33d 5%, #d29105 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f6b33d), color-stop(100%, #d29105) );
+    background-color:#f6b33d;
+    color:#ffffff;
+    display:inline-block;
+    text-shadow:1px 1px 0px #cd8a15;
+    -webkit-box-shadow:inset 1px 1px 0px 0px #fed897;
+    -moz-box-shadow:inset 1px 1px 0px 0px #fed897;
+    box-shadow:inset 1px 1px 0px 0px #fed897;
+    }
+
+.st-btn:hover {
+    background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+    background:-ms-linear-gradient( top, #d29105 5%, #f6b33d 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #d29105), color-stop(100%, #f6b33d) );
+    background-color:#d29105;
+    }
 
 .st-cam_cnt {
     background: url(../i/slide.png);
     position: relative;
     width: 1172px;
-    height: 428px;
-}
+    height: 250px;
+    }
+
+.st-course_banner {
+    width: 1170px;
+    height: 250px;
+    }
+    .st-course_banner.__web_dev {
+        background: url(../i/courses/web_dev/title.png) no-repeat;
+        }
+
+.st-course_caption {
+    text-align: center;
+    padding: 20px 0 20px 0;
+    }
+
+.st-course_attributes {
+    padding: 10px 0 10px 0;
+    }
+
+.st-course_attr {
+    line-height: 40px;
+    }
+
+.st-course_enrollment {
+    padding-left: 10px;
+    width: 340px;
+    float: left;
+    }
+
+.st-icon_small {
+    float: left;
+    margin: 3px 10px 0 0;
+    max-width: 100%;
+    height: 36px;
+    vertical-align: middle;
+    border: 0;
+    }
+
+.st-border_left {
+    border-left: solid 1px #dcdcdc;
+    }
+
+.st-text_block {
+    padding: 20px 0 20px 0;
+    }

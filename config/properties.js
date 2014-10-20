@@ -12,6 +12,8 @@ module.exports = {
         contactsPage : 'contacts',
         pageLogin: 'login',
         pageSignUp: 'signup'
-    }
+    },
+
+    root: 'http://localhost:8080/'
 
 };

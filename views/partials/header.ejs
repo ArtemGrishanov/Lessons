@@ -4,19 +4,19 @@
             <div class="navbar navbar_ clearfix">
                 <div class="navbar-inner">
                     <div class="clearfix">
-                        <h1 class="brand"><a href="<%= pages.indexPage %>"><img src="i/logo.png"
+                        <h1 class="brand"><a href="<%= properties.root + pages.indexPage %>"><img src="<%= properties.root %>i/logo.png"
                                                                           alt=""></a><span>com.unication</span></h1>
 
                         <div class="block-sign">
-                            <a href="<%= pages.pageLogin %>">sign In</a>&nbsp; |&nbsp; <a href="<%= pages.pageSignUp %>">Sign Up</a>
+                            <a href="<%= properties.root + pages.pageLogin %>">sign In</a>&nbsp; |&nbsp; <a href="<%= properties.root + pages.pageSignUp %>">Sign Up</a>
                         </div>
                         <div class="clearfix"></div>
                         <div class="menu-search">
                             <div class="nav-collapse nav-collapse_ collapse">
                                 <ul class="nav sf-menu clearfix sf-js-enabled">
-                                    <li class="active"><a href="<%= pages.indexPage %>">Home</a></li>
-                                    <li><a href="<%= pages.companyPage %>">Company</a></li>
-                                    <li class="sub-menu"><a href="<%= pages.servicesPage %>">Services</a>
+                                    <li class="active"><a href="<%= properties.root + pages.indexPage %>">Home</a></li>
+                                    <li><a href="<%= properties.root + pages.companyPage %>">Company</a></li>
+                                    <li class="sub-menu"><a href="<%= properties.root + pages.servicesPage %>">Services</a>
                                         <ul class="sub-menu" style="display: none;">
                                             <li><a href="#">services list</a>
                                                 <ul class="sub-menu" style="display: none;">
@@ -30,15 +30,15 @@
                                             <li><a href="#">How it works</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="<%= pages.blogPage %>">Blog</a></li>
-                                    <li><a href="<%= pages.contactsPage %>">Contacts</a></li>
+                                    <li><a href="<%= properties.root + pages.blogPage %>">Blog</a></li>
+                                    <li><a href="<%= properties.root + pages.contactsPage %>">Contacts</a></li>
                                 </ul>
                                 <select class="select-menu" style="display: inline-block;">
                                     <option value="#">Navigate to...</option>
-                                    <option value="<%= pages.indexPage %>">Home</option>
+                                    <option value="<%= properties.root + pages.indexPage %>">Home</option>
                                     <option value="http://livedemo00.template-help.com/wt_44201/company.html">Company
                                     </option>
-                                    <option value="<%= pages.servicesPage %>">Services</option>
+                                    <option value="<%= properties.root + pages.servicesPage %>">Services</option>
                                     <option value="http://livedemo00.template-help.com/wt_44201/#">––services list
                                     </option>
                                     <option value="http://livedemo00.template-help.com/wt_44201/#">–––Online Fax
@@ -50,8 +50,8 @@
                                     <option value="http://livedemo00.template-help.com/wt_44201/#">––Overview</option>
                                     <option value="http://livedemo00.template-help.com/wt_44201/#">––How it works
                                     </option>
-                                    <option value="<%= pages.blogPage %>">Media</option>
-                                    <option value="<%= pages.contactsPage %>">
+                                    <option value="<%= properties.root + pages.blogPage %>">Media</option>
+                                    <option value="<%= properties.root + pages.contactsPage %>">
                                         Contacts
                                     </option>
                                 </select>
