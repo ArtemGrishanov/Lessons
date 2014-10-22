@@ -139,7 +139,8 @@
 	position: absolute;
 	top: 20%;
 	left: 96px;
-	color: #182025;
+    color: #fff;
+    text-shadow: 1px 1px #000;
 }
 .camera-caption  span{
 	font-family: 'Raleway', sans-serif;

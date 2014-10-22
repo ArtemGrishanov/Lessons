@@ -68,7 +68,11 @@
             <article class="span4">
                 <div class="st-course_enrollment st-border_left">
                     <h3 class="st-text_block">Запись на курс</h3>
-                    <span class="st-btn">Записаться</span>
+                    <!--<span class="st-btn">Записаться</span>-->
+                    <form action="/subscribe" method="post">
+                        <input type="text" class="" style="display:none;" name="course" value="web_dev">
+                        <button type="submit" class="st-btn">Записаться</button>
+                    </form>
                     <div>
                         <span></br>Ориентировочный старт занятий - середина ноября, по мере комплектования группы.</span>
                     </div>

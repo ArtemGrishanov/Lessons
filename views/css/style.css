@@ -87,7 +87,6 @@ h3 {
     text-decoration:none;
     background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
     background:-ms-linear-gradient( top, #f6b33d 5%, #d29105 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
     background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f6b33d), color-stop(100%, #d29105) );
     background-color:#f6b33d;
     color:#ffffff;
@@ -106,16 +105,33 @@ h3 {
     background-color:#d29105;
     }
 
+.st-btn.__disable {
+    border:1px solid #b2b2b2;
+    background-color: #b2b2b2;
+    background:-moz-linear-gradient( center top, rgba(227, 220, 211, 0.10) 5%, #a69f99 100% );
+    background:-ms-linear-gradient( top, #e3dcd3 5%, #a69f99 100% );
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #e3dcd3), color-stop(100%, #a69f99) );
+    -webkit-box-shadow:inset 1px 1px 0px 0px rgba(136, 115, 80, 0.10);
+    -moz-box-shadow:inset 1px 1px 0px 0px #888686;
+    box-shadow:inset 1px 1px 0px 0px #888686;
+    text-shadow:none;
+    }
+
 .st-cam_cnt {
-    background: url(../i/slide.png);
+    background: url(../i/index.jpg);
     position: relative;
     width: 1172px;
-    height: 250px;
+    height: 400px;
+    }
+
+.st-course_header {
+    margin-left: 30px;
     }
 
 .st-course_banner {
     width: 1170px;
     height: 250px;
+    background: url(../i/title.jpg) no-repeat;
     }
     .st-course_banner.__web_dev {
         background: url(../i/courses/web_dev/title.png) no-repeat;
