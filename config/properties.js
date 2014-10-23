@@ -16,6 +16,6 @@ module.exports = {
 
     port: '3333',
 
-    root: 'http://localhost:3333/'
+    root: ((process.env.PRODUCTION) ? 'https://afternoon-anchorage-4984.herokuapp.com/': 'http://localhost:3333/')
 
 };

@@ -45,4 +45,5 @@ require('./app/routes.js')(app, passport, properties, courses); // load our rout
 
 // launch ======================================================================
 app.listen(port);
+console.log('Root: ' + properties.root);
 console.log('The magic happens on port ' + port);
