@@ -1,4 +1,8 @@
 // app/routes.js
+
+// load up the user model
+var User = require('../app/models/user');
+
 module.exports = function(app, passport, properties, courses) {
 
     var ejs = require('ejs'),
@@ -113,12 +117,22 @@ module.exports = function(app, passport, properties, courses) {
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/profile', // redirect to the secure profile section
+//        successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true, // allow flash messages
         pages: properties.pages,
         properties: properties
-    }));
+
+    }), function(req, res) {
+        // If this function gets called, authentication was successful.
+        // `req.user` contains the authenticated user.
+        if (req.body.subscribe) {
+            subscribe(req.user, req.body.subscribe, res, properties);
+        }
+        else {
+            res.redirect('/profile');
+        }
+    });
 
     // process the signup form
     // app.post('/signup', do all our passport stuff here);
@@ -128,12 +142,17 @@ module.exports = function(app, passport, properties, courses) {
     // =====================================
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user, // get the user out of session and pass to template
-            pages: properties.pages,
-            properties: properties
-        });
+    app.get('/profile', function(req, res) {
+        if (req.isAuthenticated()) {
+            res.render('profile.ejs', {
+                user : req.user, // get the user out of session and pass to template
+                pages: properties.pages,
+                properties: properties
+            });
+        }
+        else {
+            res.redirect('/login');
+        }
     });
 
     // =====================================
@@ -148,22 +167,44 @@ module.exports = function(app, passport, properties, courses) {
     // COURCES INTRO =======================
     // =====================================
     for (var key in courses) {
+        console.log('key: ' + key);
         app.get('/courses/' + key, function(req, res) {
-            courses[key].link = key;
 
-            var content = ejs.render(fs.readFileSync('views/partials/course/intro/' + courses[key].link + '.ejs', "utf-8"), {
-                properties: properties
-            });
+            var localKey = '';
+            for (var key in courses) {
+                if (req.originalUrl.indexOf(key) >= 0) {
+                    localKey = key;
+                    break;
+                }
+            }
 
-            console.log('link: ' + courses[key].link);
-            res.render('course_intro.ejs', {
-                course: courses[key],
-                content: content,
-                pages: properties.pages,
-                properties: properties
-            });
+            if (localKey) {
+                courses[localKey].link = localKey;
+
+                var content = ejs.render(fs.readFileSync('views/partials/course/intro/' + courses[localKey].link + '.ejs', "utf-8"), {
+                    properties: properties
+                });
+
+                console.log('link: ' + courses[localKey].link);
+                res.render('course_intro.ejs', {
+                    course: courses[localKey],
+                    content: content,
+                    pages: properties.pages,
+                    properties: properties
+                });
+            }
         });
     }
+
+    // process the subscribe
+    app.post('/subscribe', function(req, res) {
+        if (req.isAuthenticated()) {
+            subscribe(req.user, req.body.course);
+        }
+        else {
+            res.redirect('/signup?subscribe=' + req.body.course);
+        }
+    });
 };
 
 // route middleware to make sure a user is logged in
@@ -175,4 +216,26 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+function subscribe(user, course, res, properties) {
+    //save to db
+    User.findOne({ 'local.email' :  user.local.email }, function(err, user) {
+        if (err) {
+
+        }
+        else {
+            if (user) {
+                user.courses[course].active = true;
+                user.save(function(err) {
+                    res.render('thanks.ejs', {
+                        pages: properties.pages,
+                        properties: properties
+                    });
+                });
+            } else {
+
+            }
+        }
+    });
 }

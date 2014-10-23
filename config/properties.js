@@ -14,6 +14,8 @@ module.exports = {
         pageSignUp: 'signup'
     },
 
-    root: 'http://localhost:8080/'
+    port: '3333',
+
+    root: 'http://localhost:3333/'
 
 };
