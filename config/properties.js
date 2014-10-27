@@ -11,7 +11,8 @@ module.exports = {
         blogPage : 'blog',
         contactsPage : 'contacts',
         pageLogin: 'login',
-        pageSignUp: 'signup'
+        pageSignUp: 'signup',
+        profilePage: 'profile'
     },
 
     port: '3333',

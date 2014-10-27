@@ -8,14 +8,19 @@
                                                                           alt="" style="height:34px;"></a><span>com.unication</span></h1>
 
                         <div class="block-sign">
-                            <a href="<%= properties.root + pages.pageLogin %>">sign In</a>&nbsp; |&nbsp; <a href="<%= properties.root + pages.pageSignUp %>">Sign Up</a>
+                            <% if (isLoggedIn != true) { %>
+                            <a href="<%= properties.root + pages.pageLogin %>">Войти</a>&nbsp; |&nbsp; <a href="<%= properties.root + pages.pageSignUp %>">Регистрация</a>
+                            <% } %>
+                            <% if (isLoggedIn == true) { %>
+                            <a href="<%= properties.root + pages.profilePage %>"><%=user.local.email%></a>
+                            <% } %>
                         </div>
                         <div class="clearfix"></div>
                         <div class="menu-search">
                             <div class="nav-collapse nav-collapse_ collapse">
                                 <ul class="nav sf-menu clearfix sf-js-enabled">
                                     <li class="active"><a href="<%= properties.root + pages.indexPage %>">Стартовая</a></li>
-                                    <li><a href="<%= properties.root + pages.companyPage %>">О Компании</a></li>
+                                    <!--<li><a href="<%= properties.root + pages.companyPage %>">О Компании</a></li>-->
                                     <li class="sub-menu"><a href="<%= properties.root + pages.servicesPage %>">Все курсы</a>
                                         <!--<ul class="sub-menu" style="display: none;">-->
                                             <!--<li><a href="#">Курсы</a>-->
@@ -30,7 +35,7 @@
                                             <!--<li><a href="#">How it works</a></li>-->
                                         <!--</ul>-->
                                     </li>
-                                    <li><a href="<%= properties.root + pages.blogPage %>">Блог</a></li>
+                                    <li><a href="<%= properties.root + pages.profilePage %>">Мой профиль</a></li>
                                     <li><a href="<%= properties.root + pages.contactsPage %>">Контакты</a></li>
                                 </ul>
                                 <!--<select class="select-menu" style="display: inline-block;">-->

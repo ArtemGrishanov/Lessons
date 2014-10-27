@@ -11,7 +11,6 @@
 
         <div class="page-header text-center">
             <h1><span class="fa fa-anchor"></span>Профиль</h1>
-            <a href="/logout" class="btn btn-default btn-sm">Выйти</a>
         </div>
 
         <div class="row">
@@ -24,13 +23,17 @@
                     <p>
                         <strong>email</strong>: <%= user.local.email %><br>
                         <strong>Телефон</strong>: <%= user.local.phone %><br>
-                        <strong>Ваши подписки:</strong>: <%= user.cources %><br>
+                        <strong>Ваши подписки:</strong><br>
+                        <% for (var key in userCourses) {%>
+                        <span><%= userCourses[key].name %><br></span>
+                        <%}%>
                     </p>
 
                 </div>
             </div>
 
         </div>
+        <a href="/logout" class="btn btn-default btn-sm">Выйти</a>
     </div>
     <% include partials/footer %>
 </div>

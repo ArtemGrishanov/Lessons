@@ -12,67 +12,57 @@ module.exports = function(app, passport, properties, courses) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
+        var p = getResParams(req, properties);
+        res.render('index.ejs', p);
     });
     app.get('/index', function(req, res) {
-        res.render('index.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
+        var p = getResParams(req, properties);
+        res.render('index.ejs', p);
     });
 
     // =====================================
     // COMPANY PAGE
     // =====================================
-    app.get('/company', function(req, res) {
-        res.render('company.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
-    });
+//    app.get('/company', function(req, res) {
+//        res.render('company.ejs', {
+//            pages: properties.pages,
+//            properties: properties
+//        });
+//    });
 
     // =====================================
     // CONTACTS PAGE
     // =====================================
     app.get('/contacts', function(req, res) {
-        res.render('contacts.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
+        var p = getResParams(req, properties);
+        res.render('contacts.ejs', p);
     });
 
     // =====================================
     // LESSON PAGE
     // =====================================
     app.get('/lesson', function(req, res) {
-        res.render('lesson.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
+        var p = getResParams(req, properties);
+        res.render('lesson.ejs', p);
     });
 
     // =====================================
     // SERVICES PAGE
     // =====================================
     app.get('/services', function(req, res) {
-        res.render('services.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
+        var p = getResParams(req, properties);
+        res.render('services.ejs', p);
     });
 
     // =====================================
     // BLOG PAGE
     // =====================================
-    app.get('/blog', function(req, res) {
-        res.render('blog.ejs', {
-            pages: properties.pages,
-            properties: properties
-        });
-    });
+//    app.get('/blog', function(req, res) {
+//        res.render('blog.ejs', {
+//            pages: properties.pages,
+//            properties: properties
+//        });
+//    });
 
 
     // =====================================
@@ -80,13 +70,10 @@ module.exports = function(app, passport, properties, courses) {
     // =====================================
     // show the login form
     app.get('/login', function(req, res) {
-
+        var p = getResParams(req, properties);
+        p.message = req.flash('loginMessage');
         // render the page and pass in any flash data if it exists
-        res.render('login.ejs', {
-            message: req.flash('loginMessage'),
-            pages: properties.pages,
-            properties: properties
-        });
+        res.render('login.ejs', p);
     });
 
     // process the login form
@@ -106,13 +93,11 @@ module.exports = function(app, passport, properties, courses) {
     // =====================================
     // show the signup form
     app.get('/signup', function(req, res) {
+        var p = getResParams(req, properties);
+        p.message = req.flash('signupMessage');
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', {
-            message: req.flash('signupMessage'),
-            pages: properties.pages,
-            properties: properties
-        });
+        res.render('signup.ejs', p);
     });
 
     // process the signup form
@@ -144,11 +129,9 @@ module.exports = function(app, passport, properties, courses) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', function(req, res) {
         if (req.isAuthenticated()) {
-            res.render('profile.ejs', {
-                user : req.user, // get the user out of session and pass to template
-                pages: properties.pages,
-                properties: properties
-            });
+            var p = getResParams(req, properties);
+            p.userCourses = getUserCourses(req, courses);
+            res.render('profile.ejs', p);
         }
         else {
             res.redirect('/login');
@@ -186,12 +169,10 @@ module.exports = function(app, passport, properties, courses) {
                 });
 
                 console.log('link: ' + courses[localKey].link);
-                res.render('course_intro.ejs', {
-                    course: courses[localKey],
-                    content: content,
-                    pages: properties.pages,
-                    properties: properties
-                });
+                var p = getResParams(req, properties);
+                p.course = courses[localKey];
+                p.content = content;
+                res.render('course_intro.ejs', p);
             }
         });
     }
@@ -238,4 +219,28 @@ function subscribe(user, course, res, properties) {
             }
         }
     });
+}
+
+function getResParams(req, properties) {
+    return {
+        isLoggedIn: req.isAuthenticated(),
+        user : req.user, // get the user out of session and pass to template
+        pages: properties.pages,
+        properties: properties
+    };
+}
+
+function getUserCourses(req, courses) {
+    var result = {};
+    if (req.user) {
+        for (var key in courses) {
+            if (courses.hasOwnProperty(key)) {
+                if (req.user.courses.hasOwnProperty(key) &&
+                    req.user.courses[key].active == 'true') {
+                    result[key] = courses[key];
+                }
+            }
+        }
+    }
+    return result;
 }
