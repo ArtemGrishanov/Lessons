@@ -55,6 +55,14 @@ module.exports = function(app, passport, properties, courses) {
     });
 
     // =====================================
+    // FAQ PAGE
+    // =====================================
+    app.get('/faq', function(req, res) {
+        var p = getResParams(req, properties);
+        res.render('faq.ejs', p);
+    });
+
+    // =====================================
     // BLOG PAGE
     // =====================================
 //    app.get('/blog', function(req, res) {

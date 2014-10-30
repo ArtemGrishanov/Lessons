@@ -12,7 +12,8 @@ module.exports = {
         contactsPage : 'contacts',
         pageLogin: 'login',
         pageSignUp: 'signup',
-        profilePage: 'profile'
+        profilePage: 'profile',
+        faqPage: 'faq'
     },
 
     port: '3333',
