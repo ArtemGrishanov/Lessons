@@ -13,7 +13,7 @@ module.exports = function(app, passport, properties, courses) {
     // =====================================
     app.get('/', function(req, res) {
         var p = getResParams(req, properties);
-        res.render('index.ejs', p);
+        res.render('landing.ejs', p);
     });
     app.get('/index', function(req, res) {
         var p = getResParams(req, properties);
